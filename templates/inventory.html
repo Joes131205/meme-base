@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}
+    Meme Inventory
+{% endblock %}
+{% block main %}
+    <div id="inventory">
+        <h2 style="margin-bottom:50px;">Meme Inventory</h2>
+        {% for item in data %}
+            <div class="meme">
+                <img src="{{item.image_url}}" class="meme--image" />
+                <h2 class="meme--text top">{{item.top_text}}</h2>
+                <h2 class="meme--text bottom">{{item.bottom_text}}</h2>
+            </div>
+            <form method="post" action="/delete" style="margin:20px;">
+                <input type="hidden" name="meme_url" value="{{item.image_url}}">
+                <input type="hidden" name="topText" value="{{item.top_text}}">
+                <input type="hidden" name="bottomText" value="{{item.bottom_text}}">
+                <button>↑ Delete This ↑</button>
+            </form>
+        {% endfor %}
+    </div>
+
+{% endblock %}

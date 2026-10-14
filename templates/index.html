@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Meme Maker
+{% endblock %}
+
+{% block main %}
+    <div id="makeMeme">
+        <h2>Welcome! Your objective is to make good memes you must...</h2>
+        <h3>Current task = Create a banger top and bottom text -> Click da button -> Randomly generated image -> Profit</h3>
+        <form action="/meme" method="post">
+            <input type="text" placeholder="TOP TEXT" name="topText" autocomplete="off">
+            <div class="meme">
+                <img src="https://www.abtasty.com/wp-content/uploads/meme-there-is-no-test-production-only-there-is.jpg" class="meme--image" width=250px height=250px />
+                <h2 class="meme--text top">TOP TEXT</h2>
+                <h2 class="meme--text bottom">BOTTOM TEXT</h2>
+            </div>
+            <input type="text" placeholder="BOTTOM TEXT" name="bottomText" autocomplete="off">
+            <button type="submit">Get de meme</button>
+        </form>
+    </div>
+
+{% endblock %}

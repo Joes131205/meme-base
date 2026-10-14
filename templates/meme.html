@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}
+    Review Meme
+{% endblock %}
+{% block main %}
+    <div id="generatedMeme">
+        <h2>Here's your generated meme</h2>
+        <h3>Don't like the image? Just refresh!</h3>
+        <div class="meme">
+            <img src="{{meme_url}}" class="meme--image" />
+            <h2 class="meme--text top">{{topText}}</h2>
+            <h2 class="meme--text bottom">{{bottomText}}</h2>
+        </div>
+        <form method="post" action="/inventory">
+            <input type="hidden" name="meme_url" value="{{meme_url}}">
+            <input type="hidden" name="topText" value="{{topText}}">
+            <input type="hidden" name="bottomText" value="{{bottomText}}">
+            <button>Save the meme</button>
+        </form>
+    </div>
+
+{% endblock %}
